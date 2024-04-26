@@ -414,9 +414,10 @@ body{
               
                 a{
                     width: 100%;
+                    display: contents;
                     .pelicula{
-                        width: 100%;
-                        height: 500px;
+                        width: 60%;
+                        height: auto;
                        
                         .tituloPelicula{
                             h4 {
