@@ -359,6 +359,7 @@ body{
                     width: 95%;
                     height: 95%;
                     object-fit: cover;
+                    height: 305px;
                 }
                 
             }
@@ -368,6 +369,13 @@ body{
     }
    
 }
+
+.error {
+    color: #ff0000;
+    font-size: 0.8rem;
+    display: block;
+}
+
 
 @media (max-width: 768px) {
     .main{

@@ -15,42 +15,50 @@
 <body class="bodyRegistrarse">
     <header class="headerRegistrarse">
         <a class="anclaLogo" href="../index.html">
-            <i class="fas fa-film" ></i>
+            <i class="fas fa-film" aria-hidden="true"></i>
             <span>Libros</span>
         </a>
     </header>
     <main id="main" class="main">
         <section class="seccionRegistrarse" data-aos="zoom-in" data-aos-duration="1000">
-            <form action="" method="post">
-                <h2 class="tituloRegistrarse">Registrarse</h2>
+            <form action="" method="get" id="meRegistro" >
+                <h2 class="tituloRegistrarse" id="titulo">Registrarse</h2>
                 <div>
-                    <input type="text" placeholder="Nombre" required id="nombre" name="name">
+                    <input type="text" placeholder="Nombre" id="nombre" name="nombre">
+                    <span id="nombreError" class="error"></span>
                 </div>
                 <div>
-                    <input type="text" placeholder="Apellido" required id="apellido" name="apellido">
+                    <input type="text" placeholder="Apellido" id="apellido" name="apellido">
+                    <span id="apellidoError" class="error"></span>
                 </div>
                 <div>
-                    <input type="email" placeholder="Email" required id="email" name="email">
+                    <input type="email" placeholder="Email" id="email" name="email">
+                    <span id="emailError" class="error"></span>
                 </div>
                 <div>
-                    <input type="password" placeholder="Contraseña" required id="password" name="password">
+                    <input type="password" placeholder="Contraseña" id="password" name="password">
+                    <span id="passwordError" class="error"></span>
                 </div>
                 <div>
-                    <input type="date" placeholder="Fecha Nac. (dd/mm/aaaa)" required id="fnac" name="fnac">
+                    <input type="date" placeholder="Fecha Nac. (dd/mm/aaaa)" id="fnac" name="fnac">
+                    <span id="fnacError" class="error"></span>
                 </div>
                 <div>
                     <select name="pais" id="pais">
+                        <option value="">País</option>
                         <option value="AR">Argentina</option>
                         <option value="UY">Uruguay</option>
                         <option value="BR">Brasil</option>
                     </select>
+                    <span id="paisError" class="error"></span>
                 </div>
                 <div class="terminos">
                     <input class="check" type="checkbox" id="terminos">
                     <label class="textoCheck" for="terminos">Acepto Términos y Condiciones</label>
+                    <div id="terminosError" class="error"></div>                    
                 </div>
                 <div>
-                    <input type="submit" value="Registrarse" class="boton">
+                    <input type="submit" value="Registrarse" class="boton" >
                 </div>
                 <div>
                     <a class="ayuda" href="ingresar.html">¿Tenés cuenta? Ingresar</a>
@@ -62,6 +70,7 @@
     <script>
         AOS.init();
     </script>    
+    <script src="../js/validar_registro.js"></script>
 </body>
 
 </html>
