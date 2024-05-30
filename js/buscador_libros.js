@@ -22,7 +22,7 @@ function displayBooksBuscados(booksBuscados) {
     booksBuscados.forEach(bookBuscados => {
 
         const titulo = bookBuscados.volumeInfo.title;
-        const imagen = bookBuscados.volumeInfo.imageLinks ? bookBuscados.volumeInfo.imageLinks.thumbnail : '';
+        const imagen = bookBuscados.volumeInfo.imageLinks ? bookBuscados.volumeInfo.imageLinks.thumbnail : '../assets/sin_imagen.jpg';
 
         booksContainerBuscados.innerHTML += `
         <a href="detalle.html">
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('buscarLibros').addEventListener('click', function () {
         const buscar = document.getElementById('queBusco').value.trim();
         if (buscar !== '') {
-            fetchBooks(buscar,'20');
+            fetchBooks(buscar,'30');
         } else {
             alert('Por favor, ingrese una búsqueda');
         }

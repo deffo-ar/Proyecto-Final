@@ -27,7 +27,7 @@ function displayBooks(books) {
 
     books.forEach(book => {
         const titulo = book.volumeInfo.title;
-        const imagen = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '';
+        const imagen = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '../assets/sin_imagen.jpg';
         booksContainer.innerHTML += `
         <a href="./pages/detalle.html">
         <div class="pelicula">
@@ -48,7 +48,7 @@ function displayBooksAclamados(booksAclamados) {
 
     booksAclamados.forEach(bookAclamados => {
         const titulo = bookAclamados.volumeInfo.title;
-        const imagen = bookAclamados.volumeInfo.imageLinks ? bookAclamados.volumeInfo.imageLinks.thumbnail : '';
+        const imagen = bookAclamados.volumeInfo.imageLinks ? bookAclamados.volumeInfo.imageLinks.thumbnail : '../assets/sin_imagen.jpg';
         booksContainer.innerHTML += `
             <div class="peliculaItem">
             <img class="imgAclamada" src="${imagen}" alt="${titulo}"> 
@@ -60,7 +60,7 @@ function displayBooksAclamados(booksAclamados) {
 //Llama a la función cuando carga la página 
 document.addEventListener("DOMContentLoaded", function () {
     // Busca para Más Leídos
-    fetchBooks('masleidos', 'stephen', '10');
+    fetchBooks('masleidos', 'stephen king', '10');
     // Busca para Más Aclamados
-    fetchBooks('masaclamados', 'potter', '12');
+    fetchBooks('masaclamados', 'potter', '20');
 });
