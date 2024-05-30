@@ -1,17 +1,15 @@
 
 async function fetchBooks(tipo, termino, cantidad) {
 
-    console.log (tipo, termino, cantidad);
     const apiUrl = 'https://www.googleapis.com/books/v1/volumes?language=es&q='+termino+'&maxResults='+cantidad;
 
     try {
         const response = await fetch(apiUrl);
-        console.log('Response status:', response.status);
+        //console.log('Response status:', response.status);
         if (!response.ok) {
             throw new Error(`Network response was not ok: ${response.statusText}`);
         }
         const data = await response.json();
-        console.log('Fetched data:', data.items);
         if (tipo === 'masleidos') {
             displayBooks(data.items);
         } else if (tipo === "masaclamados") {
@@ -28,36 +26,38 @@ function displayBooks(books) {
     booksContainer.innerHTML = '';
 
     books.forEach(book => {
-
+        const titulo = book.volumeInfo.title;
+        const imagen = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '';
         booksContainer.innerHTML += `
         <a href="./pages/detalle.html">
         <div class="pelicula">
-        <img class="imgTendencia" src="${book.volumeInfo.imageLinks.thumbnail}" alt="${book.volumeInfo.title}">
+        <img class="imgTendencia" src="${imagen}" alt="${titulo}">
         <div class="tituloPelicula">
-            <h4>${book.volumeInfo.title}</h4>
+            <h4>${titulo}</h4>
         </div>    
         </div>  
         </a>      
         `;
     });
-    }
+}
 
 function displayBooksAclamados(booksAclamados) {
 
-    const booksContainerAclamados = document.getElementById('aclamadas');
-    booksContainerAclamados.innerHTML = '';
+    const booksContainer = document.getElementById('aclamadas');
+    booksContainer.innerHTML = '';
 
     booksAclamados.forEach(bookAclamados => {
-
-        booksContainerAclamados.innerHTML += `
+        const titulo = bookAclamados.volumeInfo.title;
+        const imagen = bookAclamados.volumeInfo.imageLinks ? bookAclamados.volumeInfo.imageLinks.thumbnail : '';
+        booksContainer.innerHTML += `
             <div class="peliculaItem">
-            <img class="imgAclamada" src="${bookAclamados.volumeInfo.imageLinks.smallThumbnail}" alt="${bookAclamados.volumeInfo.title}"> 
+            <img class="imgAclamada" src="${imagen}" alt="${titulo}"> 
         </div>     
         `;
     });
 }
 
-/* Llama a la función cuando carga la página */
+//Llama a la función cuando carga la página 
 document.addEventListener("DOMContentLoaded", function () {
     // Busca para Más Leídos
     fetchBooks('masleidos', 'stephen', '10');

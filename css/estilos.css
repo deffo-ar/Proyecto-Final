@@ -201,6 +201,9 @@ body{
                 padding: 0px 20px;
                 width: 500px;
             }
+            .inputBuscador.buscados {
+                color: #333;
+            }
             .botonBuscador{
                 background-color:#bc8f8f;
                 display: inline-block;
@@ -223,6 +226,9 @@ body{
             }
         }
        
+    }
+    .buscadorPrincipal.buscados {
+        height: 320px;
     }
     .peliculasTendencia{
         width:80%;
@@ -323,6 +329,12 @@ body{
              }
 
         }
+    }
+    .peliculasTendencia.buscados {
+        width:80%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 0 80px;
     }
     .peliculasAclamadas{
         width:80%;
