@@ -81,94 +81,9 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
-    </script>   
+    </script>
 
-    <script>
-        // Opciones para las peticiones fetch a la API
-        const options = {
-    method: 'GET', // Método de la petición (GET)
-    headers: {
-        accept: 'application/json', // Tipo de respuesta esperada (JSON)
-    }
-    };
-    const apiUrl = 'https://www.googleapis.com/books/v1/volumes?language=es&q=stephen&maxResults=10';
-    async function fetchBooks() {
-    try {
-        const response = await fetch(apiUrl, options);
-        console.log('Response status:', response.status);
-        if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.statusText}`);
-        }
-        const data = await response.json();
-        console.log('Fetched data:', data.items);
-        displayBooks(data.items);
-    } catch (error) {
-        console.error('Error fetching data:', error);
-    }
-    }
-    function displayBooks(books) {
-
-    const booksContainer = document.getElementById('peliculas');
-    booksContainer.innerHTML = '';
-
-    books.forEach(book => {
-
-        booksContainer.innerHTML += `
-        <a href="./pages/detalle.html">
-        <div class="pelicula">
-        <img class="imgTendencia" src="${book.volumeInfo.imageLinks.thumbnail}" alt="${book.volumeInfo.title}">
-        <div class="tituloPelicula">
-            <h4>${book.volumeInfo.title}</h4>
-        </div>    
-        </div>  
-        </a>      
-        `;
-    });
-    }
-    // Fetch and display books (Más leídos) when the page loads
-    fetchBooks();
-    </script>  
-
-<script>
-    // Opciones para las peticiones fetch a la API
-    const optionsAclamados = {
-method: 'GET', // Método de la petición (GET)
-headers: {
-    accept: 'application/json', // Tipo de respuesta esperada (JSON)
-}
-};
-const apiUrlAclamados = 'https://www.googleapis.com/books/v1/volumes?language=es&q=potter&maxResults=10';
-async function fetchBooksaclamados() {
-try {
-    const responseAclamados = await fetch(apiUrlAclamados, optionsAclamados);
-    console.log('Response status:', responseAclamados.status);
-    if (!responseAclamados.ok) {
-        throw new Error(`Network response was not ok: ${responseAclamados.statusText}`);
-    }
-    const dataAclamados = await responseAclamados.json();
-    console.log('Fetched data:', dataAclamados.items);
-    displayBooksAclamados(dataAclamados.items);
-} catch (error) {
-    console.error('Error fetching data:', error);
-}
-}
-function displayBooksAclamados(booksAclamados) {
-
-const booksContainerAclamados = document.getElementById('aclamadas');
-booksContainerAclamados.innerHTML = '';
-
-booksAclamados.forEach(bookAclamados => {
-
-    booksContainerAclamados.innerHTML += `
-    <div class="peliculaItem">
-    <img class="imgAclamada" src="${bookAclamados.volumeInfo.imageLinks.smallThumbnail}" alt="${bookAclamados.volumeInfo.title}"> 
-    </div>     
-    `;
-});
-}
-// Fetch and display books (Aclamados) when the page loads
-fetchBooksaclamados();
-</script>
+<script src="/js/busca_libros.js"></script>
 
 </body>
 
