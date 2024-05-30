@@ -27,7 +27,7 @@ function displayBooks(books) {
 
     books.forEach(book => {
         const titulo = book.volumeInfo.title;
-        const imagen = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '../assets/sin_imagen.jpg';
+        const imagen = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : './assets/sin_imagen.jpg';
         booksContainer.innerHTML += `
         <a href="./pages/detalle.html">
         <div class="pelicula">
@@ -48,7 +48,7 @@ function displayBooksAclamados(booksAclamados) {
 
     booksAclamados.forEach(bookAclamados => {
         const titulo = bookAclamados.volumeInfo.title;
-        const imagen = bookAclamados.volumeInfo.imageLinks ? bookAclamados.volumeInfo.imageLinks.thumbnail : '../assets/sin_imagen.jpg';
+        const imagen = bookAclamados.volumeInfo.imageLinks ? bookAclamados.volumeInfo.imageLinks.thumbnail : './assets/sin_imagen.jpg';
         booksContainer.innerHTML += `
             <div class="peliculaItem">
             <img class="imgAclamada" src="${imagen}" alt="${titulo}"> 
